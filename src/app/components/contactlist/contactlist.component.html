@@ -1,0 +1,24 @@
+<md-card>
+  <md-card-content>
+    <table id="contact_table" class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Age</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let c of contactService.contacts">
+        <tr (click)="onSelect(c)" [class.selected]="c===contactService.selectedContact">
+          <td></td>
+          <td>{{c.name}}</td>
+          <td>{{c.surname | uppercase}}</td>
+          <td>{{c.age}}</td>
+          <td>{{c.phone}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-card-content>
+</md-card>

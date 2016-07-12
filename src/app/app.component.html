@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout fullscreen>
+    <md-sidenav #sidenav mode='side' class="app-sidenav">
+        Navigasyon linkleri buraya
+    </md-sidenav>
+    <md-toolbar color='primary'>
+        <button class="app-icon-button" (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+    </button> Contact List</md-toolbar>
+    <div class="app-content">
+        <contactlist (editContactEvent)='editContact($event)'>Contact List Loading...</contactlist>
+        <button md-raised-button color="primary" *ngIf="!contactService.editing" (click)="onAddNewContact()">
+            Add New Contact
+        </button>
+        <contacteditor *ngIf="contactService.editing" [contact]="contactService.selectedContact">Contact Editor Loading...</contacteditor>
+    </div>
+</md-sidenav-layout>

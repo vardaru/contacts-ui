@@ -7,10 +7,31 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material'
 };
 
 /** User packages configuration. */
-const packages: any = {
+const materialPackages: string[] = [
+  'core',
+  'button',
+  'list',
+  'toolbar',
+  'sidenav',
+  'icon',
+  'card',
+  'input'
+];
+const packages: any = createCustomConfig(materialPackages);
+
+function createCustomConfig(packages: string[]): any {
+  return packages.reduce((packageConfig: any, packageName: string) => {
+    packageConfig[`@angular2-material/${packageName}`] = {
+      format: 'cjs',
+      defaultExtension: 'js',
+      main: packageName
+    };
+    return packageConfig;
+  }, {});
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,6 +42,7 @@ const barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
   '@angular/common',
+  '@angular/forms',
   '@angular/compiler',
   '@angular/http',
   '@angular/router',
@@ -33,6 +55,8 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/components/contactlist',
+  'app/components/contacteditor',
   /** @cli-barrel */
 ];
 
