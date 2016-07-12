@@ -1,7 +1,24 @@
 # ContactsUi
+ContactsUi uygulaması [ContactService](https://github.com/vardaru/ContactService) uygulaması ile birlikte çalışmak üzere geliştirilmiştir. 
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
+Proje Angular-CLI kullanılar geliştirilmiştir. [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
 
+Projeye öncelikle:
+angular2-material tasarım özellikleri eklenmiştir. Bunun için projeye:
+npm install --save @angular2-material/core ile ilgili paketler (core, sidenav, icon, list, button vb) eklenmiştir [angular2-material](https://github.com/angular/material2/tree/master/src/components)  
+
+Bu işlemlerden sonra system-config.ts dosyasında göreceğiniz değişiklikler yapılmıştır.
+Ardından index.html e Bootstrap css eklenmiştir.
+
+### Bileşenler
+
+Projede dört ana bileşen bulunmaktadır, app.component, contactlist.component, contacteditor.component ve contact.service 
+Bileşenlerin isimleri @angular dünyasında kabul görmüş ilkelere uygun verilmiştir. 
+
+contactlist deki @Output ve contacteditor deki @Input dekoratörleri veri göndermek (event ile) ve veri almak için kullanılmışlardır. Angular 2'de hiyerarşik bileşenler arasında veri alışverişi bu yolla yapılmaktadır.
+Diğer yandan contact.service  bileşenin kullanımına dikkat edilmelidir. Servisler @Injectable dekoratörü ile işaretlenirler ve bileşenlere constructor()lar vasıtasıyla inject edilirler. 
+
+ 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
