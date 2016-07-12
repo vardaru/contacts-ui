@@ -1,5 +1,6 @@
 <md-card>
-  <md-card-title> Editing {{contact.name}} {{contact.surname}}</md-card-title>
+  <md-card-title *ngIf="contact.id" > Editing {{contact.name}} {{contact.surname}}</md-card-title>
+  <md-card-title *ngIf="!contact.id" > New Contact</md-card-title>
   <md-card-content>
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <div class="form-group">
@@ -10,12 +11,18 @@
       </div>
       <div class="form-group">
         <md-input type="text" [(ngModel)]="contact.surname" name="surname" required #surname="ngModel" placeholder="Surname"></md-input>
+        <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
+          Surname is required
+        </div>
       </div>
       <div class="form-group">
         <md-input type="text" [(ngModel)]="contact.age" name="age" #age="ngModel" placeholder="Age"></md-input>
       </div>
       <div class="form-group">
         <md-input type="text" [(ngModel)]="contact.phone" name="phone" required #phone="ngModel" placeholder="Phone"></md-input>
+        <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+          Phone is required
+        </div>
       </div>
       <md-card-actions layout="row" layout-align="center">
         <button type="submit" md-raised-button color="accent" [disabled]="!contactForm.form.valid">Submit</button>

@@ -16,7 +16,8 @@ Projede dört ana bileşen bulunmaktadır, app.component, contactlist.component,
 Bileşenlerin isimleri @angular dünyasında kabul görmüş ilkelere uygun verilmiştir. 
 
 contactlist deki @Output ve contacteditor deki @Input dekoratörleri veri göndermek (event ile) ve veri almak için kullanılmışlardır. Angular 2'de hiyerarşik bileşenler arasında veri alışverişi bu yolla yapılmaktadır.
-Diğer yandan contact.service  bileşenin kullanımına dikkat edilmelidir. Servisler @Injectable dekoratörü ile işaretlenirler ve bileşenlere constructor()lar vasıtasıyla inject edilirler. 
+Diğer yandan contact.service  bileşenin kullanımına dikkat edilmelidir. Servisler @Injectable dekoratörü ile işaretlenirler ve bileşenlere constructor()lar vasıtasıyla inject edilirler.
+pipes dizini altındaki pipes kullanılmamıştır. Sadece yer tutucu olarak konulmuştur. Onun yerine "built-in" "uppercase" pipe kullanımıştır. Soyadlar küçük harfle yazılsa bile gösterim anında büyük harfle yazılmaktadır.  
 
  
 ## Development server
